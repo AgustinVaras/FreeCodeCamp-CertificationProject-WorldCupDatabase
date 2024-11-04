@@ -51,6 +51,7 @@ echo $($PSQL "TRUNCATE teams, games;")
         #Get new OPPONENT
         OPPONENT_ID=$($PSQL "SELECT team_id FROM teams WHERE name LIKE '$OPPONENT' ")
       fi
+      #Insert game
       INSERT_GAME_RESULT=$($PSQL "INSERT INTO 
                                   games(
                                     year, 
