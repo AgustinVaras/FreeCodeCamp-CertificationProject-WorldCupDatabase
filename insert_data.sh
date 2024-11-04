@@ -11,7 +11,8 @@ fi
 echo $($PSQL "TRUNCATE teams, games;")
 # if [[ $1 == "test" ]]
 # then
-  cat games_test.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS
+  # cat games_test.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS
+  cat games.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS
   do
     if [[ $WINNER != "winner" ]]
     then  
