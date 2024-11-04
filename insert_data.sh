@@ -34,7 +34,7 @@ then
       fi
 
       #Get opponent ID
-      OPPONENT_ID=$($PSQL "SELECT name FROM teams WHERE name LIKE '$OPPONENT' ")
+      OPPONENT_ID=$($PSQL "SELECT team_id FROM teams WHERE name LIKE '$OPPONENT' ")
 
       #If not found
       if [[ -z $OPPONENT_ID ]] 
@@ -48,8 +48,23 @@ then
         fi
 
         #Get new OPPONENT
-        OPPONENT_ID=$($PSQL "SELECT name FROM teams WHERE name LIKE '$OPPONENT' ")
-      fi 
+        OPPONENT_ID=$($PSQL "SELECT team_id FROM teams WHERE name LIKE '$OPPONENT' ")
+      fi
+      # INSERT_GAME_RESULT=$($PSQL "INSERT INTO 
+      #                             games(
+      #                               year, 
+      #                               round, 
+      #                               winner_id, 
+      #                               opponent_id, 
+      #                               winner_goals, 
+      #                               opponent_goals) 
+      #                             VALUES(
+      #                               $YEAR,
+      #                               '$ROUND',
+      #                               $WINNER_ID,
+      #                               $OPPONENT_ID,
+      #                               $WINNER_GOALS,
+      #                               $OPPONENT_GOALS)" ) 
     fi
   done
 fi
