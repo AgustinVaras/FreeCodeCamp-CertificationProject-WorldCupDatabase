@@ -9,8 +9,8 @@ fi
 
 # Do not change code above this line. Use the PSQL variable above to query your database.
 echo $($PSQL "TRUNCATE teams, games;")
-if [[ $1 == "test" ]]
-then
+# if [[ $1 == "test" ]]
+# then
   cat games_test.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS
   do
     if [[ $WINNER != "winner" ]]
@@ -71,4 +71,4 @@ then
       fi
     fi
   done
-fi
+# fi
